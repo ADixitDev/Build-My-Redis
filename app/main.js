@@ -6,8 +6,9 @@ const net = require("net");
 // Uncomment this block to pass the first stage
 const server = net.createServer((connection) => {
   // Handle connection
-   connection.on("data" , (data)=>{
+    connection.on("data" , (data)=>{
     connection.write("+PONG\r\n");
+    
    })
 });
 //port , IP Address 
