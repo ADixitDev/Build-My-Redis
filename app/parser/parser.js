@@ -1,4 +1,4 @@
-const {StringParser , BulkStringParser , ArrayParser} = require ('./parser') ;  
+const {StringParser , BulkStringParser , ArrayParser} = require ('../parser/index.js') ;  
 const RESPTypes = {
      	'*': ArrayParser,
     	'+': StringParser,
