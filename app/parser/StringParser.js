@@ -1,4 +1,4 @@
-module exports = class parser{
+module.exports = class parser{
 parse(){
 
 }
