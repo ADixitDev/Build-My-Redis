@@ -19,8 +19,6 @@ const runner = new Runner();
     
    });
 });
-connection.on("close", () => {
-  console.log("Closing connection");
-});
+
 //port , IP Address 
  server.listen(6379, "127.0.0.1");
