@@ -13,9 +13,9 @@ module.exports =  class parser {
       let type = lines[0][0] ;
       if(RESPTypes[type] === undefined) throw new Error('Unknown Type');
 
-      let types = lines[0][0] // (*2$5\r\ndata\r\n) so this gives me [0] -> *2 ,second[0]->* means  ArraParser 
+     // (*2$5\r\ndata\r\n) so this gives me [0] -> *2 ,second[0]->* means  ArraParser 
     // dynamically created object 
-      let parser = new RESPTypes[types](RESPTypes) ; 
+      let parser = new RESPTypes[type](RESPTypes) ; 
       let {result} = parser.parse(lines , 0) ; 
       return result ;   
     }
