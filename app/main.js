@@ -1,5 +1,5 @@
 const net = require("net");
-const Parser = require("./parser");
+const Parser = require("./parser/parser.js");
  const Runner = require("./Runner.js");
 
 
