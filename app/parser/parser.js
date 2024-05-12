@@ -11,7 +11,7 @@ module.exports =  class parser {
       const lines = data.split('\r\n') ;
       lines.pop();	
       let type = lines[0][0] ;
-      if(RESPTypes[type] === undefined) throw new Error('Unknown Type');
+      //if(RESPTypes[type] === undefined) throw new Error('Unknown Type');
 
      // (*2$5\r\ndata\r\n) so this gives me [0] -> *2 ,second[0]->* means  ArraParser 
     // dynamically created object 
