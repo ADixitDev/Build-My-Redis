@@ -1,6 +1,6 @@
 const net = require("net");
 const Parser = require("./parser");
- const Runner = require("./Runner");
+ const Runner = require("./Runner.js");
 
 const parser = new Parser();
 const runner = new Runner();

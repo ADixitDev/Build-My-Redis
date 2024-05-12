@@ -1,4 +1,4 @@
-const {Echo, Ping, Command} = require('./commands/');
+const {Echo, Ping, Command} = require('./commands/index.js');
  
  const commandFactory = {
    "echo": Echo,
