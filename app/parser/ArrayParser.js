@@ -11,11 +11,11 @@ module.exports = class ArrayParser{
 
 
       for (let i = 0 ; i<len ; i++){
-       let parsertype = types[lines[next][0]] ; 
+       //[lines[next][0]]let parsertype = types[lines[next][0]] ; 
        // dynamically insiates 
        // the object select the which type of parser
        // they create object
-       let parser = new this.types[parsertype](this.type) ; 
+       let parser = new this.types[lines[next][0]](this.type) ; 
        let res = parser.parse(lines , next) ; 
        result.push(res.result);
        next = res.next ;
