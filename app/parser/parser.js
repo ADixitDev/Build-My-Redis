@@ -10,6 +10,7 @@ module.exports =  class parser {
 
       const lines = data.split('\r\n') ;
       lines.pop();	
+      let type = lines[0][0] ;
       if(RESPTypes[type] === undefined) throw new Error('Unknown Type');
 
       let types = lines[0][0] // (*2$5\r\ndata\r\n) so this gives me [0] -> *2 ,second[0]->* means  ArraParser 
