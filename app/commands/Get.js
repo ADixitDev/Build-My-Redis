@@ -1,5 +1,5 @@
 const {BulkStringParser} = require ("../parser/") ; 
-const {Store} = require ("../Store") ; 
+const Store = require ("../Store") ; 
 
 
 module.exports = class Get {
@@ -11,7 +11,7 @@ module.exports = class Get {
     if(store.data[commands[1]] === undefined) {
         return new BulkStringParser().serialize(null);
      }
-     
+
     let parser = new BulkStringParser() ; 
     return parser.serialize(store.data[commands[1]]) ;
 
