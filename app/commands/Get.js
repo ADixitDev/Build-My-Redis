@@ -11,7 +11,7 @@ module.exports = class Get {
     // if(store.data[commands[1]] === undefined) {
     //     return new BulkStringParser().serialize(null);
     //  }
-    let store = new Store();
+    let store = new Store({});
          let key = commands[1];
          
          // If the key is not present or,
