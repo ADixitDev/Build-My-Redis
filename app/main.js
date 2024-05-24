@@ -1,6 +1,13 @@
 const net = require("net");
 const Parser = require("./parser/parser.js");
  const Runner = require("./Runner.js");
+ const config = {
+   	port: 6379
+   }
+   
+   let portIdx = process.argv.indexOf('--port')
+   if(portIdx !== -1) 
+   	config.port = process.argv[portIdx + 1]
 
 
 // You can use print statements as follows for debugging, they'll be visible when running tests.
@@ -20,5 +27,7 @@ const runner = new Runner();
    });
 });
 
+
+
 //port , IP Address 
- server.listen(6379, "127.0.0.1");
+ server.listen(config.port, "127.0.0.1");
