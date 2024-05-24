@@ -8,14 +8,14 @@ module.exports = class Set {
 
          let [_, key, value, __ , expiry] = commands;
  
-         let store = new Store({});
-         store.data[key] = value ;
+         let store = new Store();
+         store.data[key] = {value :value} ;
      
          if(expiry) {
            const time = new Date().getTime();
            let expiryTime = time + parseInt(expiry);
            
-           store.data[key].expiry = {expiryTime};
+           store.data[key].expiry = expiryTime;
      
            setTimeout(() => {
              this.delete(key);

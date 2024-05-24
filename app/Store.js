@@ -17,7 +17,7 @@ module.exports = class Store {
 constructor(data){
     if(!Store.instance){
         Store.instance = this ;
-        this.data = data  ;    
+        this.data = {}  ;    
     }
     return Store.instance ;
 }
