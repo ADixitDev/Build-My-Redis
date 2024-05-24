@@ -1,5 +1,5 @@
 const {StringParser} = require ("../parser/") ; 
-const {Store} = require ("../Store") ; 
+const Store = require ("../Store") ; 
 
 
 module.exports = class Set {
