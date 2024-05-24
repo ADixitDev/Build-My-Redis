@@ -1,9 +1,12 @@
-const {Echo, Ping, Command} = require('./commands/index.js');
+const {Echo, Ping, Command ,Set ,Get} = require('./commands/index.js');
  
  const commandFactory = {
    "echo": Echo,
    "ping": Ping,
    "command": Command,
+   "set" :Set ,
+   "get" :Get 
+
  }
  
  module.exports = class Runner {

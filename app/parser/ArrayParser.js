@@ -1,5 +1,5 @@
 
-module.exports = class ArrayParser{
+module.exports = class ArrayParser{ 
 
     constructor(types){
         this.types = types ;
@@ -16,7 +16,9 @@ module.exports = class ArrayParser{
        // the object select the which type of parser
        // they create object
        let parser = new this.types[lines[next][0]](this.type) ; 
+       //console.log(parser);
        let res = parser.parse(lines , next) ; 
+
        result.push(res.result);
        next = res.next ;
       }

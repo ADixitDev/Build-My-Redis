@@ -5,5 +5,7 @@ const Echo = require('./Echo');
  module.exports = {
    Echo, 
    Ping,
-   Command
+   Command,
+   Set ,
+   Get 
  }
