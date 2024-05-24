@@ -15,7 +15,7 @@ module.exports = class Set {
            const time = new Date().getTime();
            let expiryTime = time + parseInt(expiry);
            
-           store.data[key].expiry = expiryTime;
+           store.data[key].expiry = {expiryTime};
      
            setTimeout(() => {
              this.delete(key);
