@@ -21,7 +21,7 @@ module.exports = class Get {
           }
 
     let parser = new BulkStringParser() ; 
-    return parser.serialize(store.data[commands[1].value]) ;
+    return parser.serialize(store.data[commands[1]].value) ;
 
  }
 }

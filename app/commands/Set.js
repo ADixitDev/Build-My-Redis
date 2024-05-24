@@ -9,7 +9,7 @@ module.exports = class Set {
          let [_, key, value, __ , expiry] = commands;
  
          let store = new Store();
-         store.data[key] = value;
+         store.data[key] = {value}
      
          if(expiry) {
            const time = new Date().getTime();
