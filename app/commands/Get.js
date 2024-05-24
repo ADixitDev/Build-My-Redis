@@ -6,7 +6,7 @@ module.exports = class Get {
  execute(commands){
     if(commands.length<2) throw new Error ('Invalid commands') ; 
 
-    let store = new Store({}) ; 
+   // let store = new Store({}) ; 
 
     // if(store.data[commands[1]] === undefined) {
     //     return new BulkStringParser().serialize(null);
