@@ -3,7 +3,7 @@ module.exports= class Config{
     constructor (config){
         if(!Config.instance){
             this.port = 6379 // it's default port 
-            this.config {
+            this.replication = {
                 'role' : 'master' ;
             }
 
