@@ -3,11 +3,13 @@ const Echo = require('./Echo');
  const Command = require('../commands/commads.js');
  const Set = require('./Set');
  const Get = require('./Get');
+ const Info = require('./info');
  
  module.exports = {
    Echo, 
    Ping,
    Command,
    Set ,
-   Get 
+   Get, 
+   Info
  }
