@@ -16,13 +16,13 @@ module.exports= class Config{
 
 
     processConfig(args){
-     let portIdx = args.indexof('--port');
+     let portIdx = args.indexOf('--port');
      if(portIdx!==-1){
         this.port = parseInt(args[portIdx]) ; 
      }
 
      // Find out the replicas idx
-     let replicasIdx = args.indexof('--replicaof');
+     let replicasIdx = args.indexOf('--replicaof');
      
      if(replicaIdx !== -1) {
                this.replication = args[replicaIdx + 1];
