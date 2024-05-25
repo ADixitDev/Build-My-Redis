@@ -4,7 +4,7 @@ module.exports= class Config{
         if(!Config.instance){
             this.port = 6379 // it's default port 
             this.replication = {
-                'role' : 'master' ;
+                'role' : 'master' 
             }
 
             this.processConfig(config);
