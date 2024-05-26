@@ -10,7 +10,7 @@ const Parser = require("./parser/parser.js");
   //  if(portIdx !== -1) 
   //  	config.port = process.argv[portIdx + 1]
   const config = new Config(process.argv);
-  console.log(config);
+  //console.log(config);
 
 
 // You can use print statements as follows for debugging, they'll be visible when running tests.

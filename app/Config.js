@@ -1,3 +1,4 @@
+const { randomString } = require("./util");
 module.exports = class Config {
   // static methods belong to a class and don't act on its instances. 
   // This means that they can't be called on instances of the class. Instead, 
@@ -14,7 +15,7 @@ module.exports = class Config {
          this.port = 6379
          this.replication = {
            'role': 'master',
-           'master_replid' : '8371b4fb1155b71f4a04d3e1bc3e18c4a990aeeb' ,
+           'master_replid' :randomString(40)  ,
            'master_repl_offset': 0 ,
          }
      
