@@ -1,6 +1,10 @@
 module.exports = class Config {
+  // static methods belong to a class and don't act on its instances. 
+  // This means that they can't be called on instances of the class. Instead, 
+  // they're called on the class itself. 
+  // They are often utility functions, such as functions to create or clone objects.
+
        static instance;
-       
        constructor(config) {
          if(Config.instance) {
            return Config.instance;
@@ -9,7 +13,9 @@ module.exports = class Config {
          // Defaults:
          this.port = 6379
          this.replication = {
-           'role': 'master'
+           'role': 'master',
+           'master_replid' : '8371b4fb1155b71f4a04d3e1bc3e18c4a990aeeb' ,
+           'master_repl_offset': 0 ,
          }
      
          this.processConfig(config);
