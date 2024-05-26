@@ -1,4 +1,4 @@
-const { randomString } = require("./util");
+const { randomString } = require("../util");
 module.exports = class Config {
   // static methods belong to a class and don't act on its instances. 
   // This means that they can't be called on instances of the class. Instead, 
