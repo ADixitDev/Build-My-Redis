@@ -23,5 +23,6 @@ for(let key in config.replication) {
 }
 
 result = result.trim();
+let parser = new BulkStringParser() ;
 return parser.serialize(result);
  }
