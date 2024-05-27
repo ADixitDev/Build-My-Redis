@@ -19,7 +19,7 @@ const {ArrayParser} = require("./parser");
 
 // Uncomment this block to pass the first stage
 
-if(Config.replication.role==="slave"){
+if(config.replication.role==="slave"){
   const socket = net.createConnection(Config.replication.port) ;
   let parser = new ArrayParser() ;
  let  at = 1 ;
