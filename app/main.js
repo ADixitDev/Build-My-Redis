@@ -20,7 +20,7 @@ const {ArrayParser} = require("./parser");
 // Uncomment this block to pass the first stage
 
 if(config.replication.role==="slave"){
-  const socket = net.createConnection(Config.replication.port) ;
+  const socket = net.createConnection(config.replication.port) ;
   let parser = new ArrayParser() ;
  let  at = 1 ;
   let handshake = [["ping"]] ; 
