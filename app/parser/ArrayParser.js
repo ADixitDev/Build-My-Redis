@@ -29,7 +29,22 @@ module.exports = class ArrayParser{
       }
     }
 
-    serialize(){
-
-    }
+    serialize(data) {
+           if(!Array.isArray(data)) {
+             throw new Error("Types must be Array for ArrayParser")
+           }
+       
+          let parser = new BulkStringParser();
+      
+          let result = `*${data.length}\r\n`;
+      
+          for (let item of data) {
+             if (typeof item === "number") {
+              item = item.toString();
+             }
+             result += parser.serialize(item);
+           }
+       
+           return result;
+          }
 }
