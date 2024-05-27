@@ -2,6 +2,7 @@ const net = require("net");
 const Parser = require("./parser/parser.js");
  const Runner = require("./Runner.js");
  const Config = require("./Config");
+const {ArrayParser} = require("./parser");
 //  const config = {
 //    	port: 6379
 //    }
@@ -17,9 +18,24 @@ const Parser = require("./parser/parser.js");
 //console.log("Logs from your program will appear here!");
 
 // Uncomment this block to pass the first stage
+
+if(Config.replication.role==='slave'){
+  const socket = net.createConnection(Config.replication.port) ;
+  let parser = new ArrayParser() ;
+ let  at = 1 ;
+  let handshake = [["ping"]] ; 
+  socket.write (parser.serialize(handshake[0])) ;
+}
+// socket.on('data' , (data)=>{
+// if(at<handshake.length){
+//   socket.write(parser.serialize(handshake[at])) ;
+//   at++ ; 
+// }
+// });
 const server = net.createServer((connection) => {
   const parser = new Parser();
 const runner = new Runner();
+
   // Handle connection
     connection.on("data" , (input)=>{
       const data = input.toString();
