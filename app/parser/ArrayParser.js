@@ -1,4 +1,4 @@
-
+const {BulkStringParser} = require("../parser")
 module.exports = class ArrayParser{ 
 
     constructor(types){
