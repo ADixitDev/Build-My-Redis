@@ -47,6 +47,13 @@ const {ArrayParser} = require("./parser");
 //FULLRESYNC <REPL_ID> 0\r\n
 
 if(config.replication.role==="slave"){
+  console.log(`Attempting to connect to port: ${config.replication.port}`);
+    
+    // Check if port is a valid number
+    if (typeof config.replication.port !== 'number' || isNaN(config.replication.port) || config.replication.port < 0 || config.replication.port >= 65536) {
+        throw new Error(`Invalid port: ${config.replication.port}`);
+    }
+
   const socket = net.createConnection(config.replication.port) ;
   const parser = new ArrayParser() ;
  let  at = 1 ;
