@@ -36,7 +36,7 @@ module.exports = class Config {
          let replicaIdx = args.indexOf('--replicaof')
          if(replicaIdx !== -1) {
            this.replication = args[replicaIdx + 1];
-           const [host, port] = replica.host.split(' ');
+           const [host, port] = replication.split(' ');
            console.log('Configured port:', this.port);
            this.replication = {
              role: 'slave',
