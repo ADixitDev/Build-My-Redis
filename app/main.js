@@ -2,6 +2,8 @@ const net = require("net");
 const Parser = require("./parser/parser.js");
  const Runner = require("./Runner.js");
  const Config = require("./Config");
+ const configArgs = process.argv.slice(2);
+
 const {ArrayParser} = require("./parser");
 //  const config = {
 //    	port: 6379
@@ -10,7 +12,7 @@ const {ArrayParser} = require("./parser");
   //  let portIdx = process.argv.indexOf('--port')
   //  if(portIdx !== -1) 
   //  	config.port = process.argv[portIdx + 1]
-  const config = new Config(process.argv);
+  const config = new Config(configArgs);
   //console.log(config);
 
 
