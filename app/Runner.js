@@ -1,4 +1,4 @@
-const {Echo, Ping, Command ,Set ,Get,Info , ReplConf, Psync } = require('./commands/index.js');
+const {Echo, Ping, Command ,Set ,Get,Info , Replconf, Psync } = require('./commands/index.js');
  
  const commandFactory = {
    "echo": Echo,
