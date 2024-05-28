@@ -1,4 +1,4 @@
-const {Echo, Ping, Command ,Set ,Get,Info} = require('./commands/index.js');
+const {Echo, Ping, Command ,Set ,Get,Info , ReplConf, Psync } = require('./commands/index.js');
  
  const commandFactory = {
    "echo": Echo,
@@ -6,7 +6,9 @@ const {Echo, Ping, Command ,Set ,Get,Info} = require('./commands/index.js');
    "command": Command,
    "set" :Set ,
    "get" :Get ,
-   "info" :Info
+   "info" :Info,
+   "replconf" :Replconf ,
+   "psync": Psync
 
  }
  

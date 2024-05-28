@@ -4,6 +4,8 @@ const Echo = require('./Echo');
  const Set = require('./Set');
  const Get = require('./Get');
  const Info = require('./info');
+ const Replconf = require('./Replconf.js');
+ const Psync = require ('./Psync.js');
  
  module.exports = {
    Echo, 
@@ -11,5 +13,9 @@ const Echo = require('./Echo');
    Command,
    Set ,
    Get, 
-   Info
+   Info,
+   Replconf,
+   Psync
+
+
  }
