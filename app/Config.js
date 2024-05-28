@@ -12,7 +12,7 @@ module.exports = class Config {
          }
      
          // Defaults:
-         this.port = 6379
+         this.port = 6380 ;
          this.replication = {
            'role': 'master',
            'master_replid' :randomString(40)  ,
