@@ -6,7 +6,7 @@ const RESPTypes = {
      };
 module.exports =  class parser {
     parse(data){
-      if (data[0]!== '*') throw new Error('Invalid string received')
+      if (data[0]!== '*') throw new Error('Invalid string received') ;
 
       const lines = data.split('\r\n') ;
       lines.pop();	

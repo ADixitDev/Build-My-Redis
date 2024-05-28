@@ -52,13 +52,15 @@ if(config.replication.role==="slave"){
  let  at = 1 ;
   let handshake = [["ping"] , ["replconf", "listening-port", config.port] , ["replconf", "capa", "psync2"] ,["psync", "?", "-1"]]  ; 
   socket.write (parser.serialize(handshake[0])) ;
-}
+
  socket.on('data' , (data)=>{
+  console.log(data.toString());
  if(at<handshake.length){
   socket.write(parser.serialize(handshake[at])) ;
   at++ ; 
  }
  });
+}
 const server = net.createServer((connection) => {
   const parser = new Parser();
 const runner = new Runner();
