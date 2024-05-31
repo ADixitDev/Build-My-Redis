@@ -85,7 +85,7 @@ const runner = new Runner();
     // isArray to check this types of array suppose it is
     // 42 (int) , {key:value}  ,string so we will convert in array 
     // [42 , {key:value} ,"string"] 
-+ 		if(!Array.isArray(result)) {
+ 		if(!Array.isArray(result)) {
    			result = [result];
    		}
   
