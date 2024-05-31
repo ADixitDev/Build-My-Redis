@@ -61,9 +61,10 @@ if(config.replication.role==="slave"){
  let  at = 1 ;
   let handshake = [["ping"] , ["replconf", "listening-port", config.port] , ["replconf", "capa", "psync2"] ,["psync", "?", "-1"]]  ; 
   socket.write (parser.serialize(handshake[0])) ;
-
+// its a different tcp connection and handshake 
+//will happend b/w master and replica
  socket.on('data' , (data)=>{
-  console.log(data.toString());
+  console.log( "Replica Received Data:",data.toString());
  if(at<handshake.length){
   socket.write(parser.serialize(handshake[at])) ;
   at++ ; 
@@ -78,8 +79,19 @@ const runner = new Runner();
     connection.on("data" , (input)=>{
       const data = input.toString();
       		const commands = parser.parse(data);
-       		const result = runner.execute(commands);
-    connection.write(result);
+       		let result = runner.execute(commands);
+    //connection.write(result);
+    // Handle multiple responses.
+    // isArray to check this types of array suppose it is
+    // 42 (int) , {key:value}  ,string so we will convert in array 
+    // [42 , {key:value} ,"string"] 
++ 		if(!Array.isArray(result)) {
+   			result = [result];
+   		}
+  
+   		for(let item of result) {
+   			connection.write(item);
+  		}
     
    });
 });

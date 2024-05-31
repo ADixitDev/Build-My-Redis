@@ -1,6 +1,7 @@
 module.exports = class Store {
 
-    static instance ;// This is singleton pattern creates single instance what do i means 
+    static instance ;
+    // This is singleton pattern creates single instance what do i means 
     // if suppose set key1:value & set key1 :value2 if you check i
 // demonstration 
 // |
