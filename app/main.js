@@ -91,9 +91,10 @@ function setup() {
    			});
         }
 }
+socket.once('data', setup); 
 }
 
-socket.once('data', setup); 
+
 
 const server = net.createServer((connection) => {
   const parser = new Parser();
