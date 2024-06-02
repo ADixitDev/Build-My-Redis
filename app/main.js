@@ -15,7 +15,7 @@ const {ArrayParser} = require("./parser");
   const config = new Config(configArgs);
   //console.log(config);
    // Redis Store
-   const _ = new Store({});
+   //const _ = new Store({});
    
    const parser = new Parser();
    const runner = new Runner();
