@@ -91,6 +91,7 @@ function setup() {
    			});
         }
 }
+}
 
 socket.once('data', setup); 
 
