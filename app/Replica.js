@@ -4,7 +4,7 @@ module.exports = class Replica{
     constructor(connections = []){
       if(!Replica.instance){
         Replica.instance = this ; 
-        this.instance = connections ;
+        this.connections = connections ;
       }
 
       return Replica.instance ; 
