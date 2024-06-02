@@ -1,5 +1,7 @@
-const {StringParser} = require ("../parser/") ; 
+const {StringParser , ArrayParser} = require ("../parser/") ; 
 const Store = require ("../Store") ; 
+const replicateEvent = require("../ReplicateEvent");
+const Del = require("./Del");
 
 
 module.exports = class Set {
@@ -18,7 +20,12 @@ module.exports = class Set {
            store.data[key].expiry = expiryTime;
      
            setTimeout(() => {
-             this.delete(key);
+            //  this.delete(key);
+            let arrayParser = new ArrayParser();
+            // Emit the event for replicas.
+            replicateEvent.emit('replicate', arrayParser.serialize(['del', key]));
+            const del = new Del();
+            del.execute(key);
            }, parseInt(expiry));
          }
     // let store = new Store({}) ; 
@@ -28,8 +35,8 @@ module.exports = class Set {
 
  }
 
- delete(key) {
-        let store = new Store();
-        delete store.data[key];
-       }
+//  delete(key) {-> bcz of del alag se hi bana diya class
+//         let store = new Store();
+//         delete store.data[key];
+//        }
 }

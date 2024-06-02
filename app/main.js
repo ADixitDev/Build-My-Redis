@@ -14,7 +14,18 @@ const {ArrayParser} = require("./parser");
   //  	config.port = process.argv[portIdx + 1]
   const config = new Config(configArgs);
   //console.log(config);
-
+   // Redis Store
+   const _ = new Store({});
+   
+   const parser = new Parser();
+   const runner = new Runner();
+   
+   function processInput(input, connection) {
+   	const data = input.toString();
+   	const commands = parser.parse(data);
+   	return result = runner.execute(commands, input, connection);
+   }
+  
 
 
 
@@ -59,27 +70,40 @@ if(config.replication.role==="slave"){
   const socket = net.createConnection(config.replication.port) ;
   const parser = new ArrayParser() ;
  let  at = 1 ;
-  let handshake = [["ping"] , ["replconf", "listening-port", config.port] , ["replconf", "capa", "psync2"] ,["psync", "?", "-1"]]  ; 
+ 
+  const handshake = [["ping"], ["replconf", "listening-port", config.port], ["replconf", "capa", "psync2"], ["psync", "?", "-1"], []];
+  
   socket.write (parser.serialize(handshake[0])) ;
 // its a different tcp connection and handshake 
 //will happend b/w master and replica
- socket.on('data' , (data)=>{
-  console.log( "Replica Received Data:",data.toString());
- if(at<handshake.length){
-  socket.write(parser.serialize(handshake[at])) ;
-  at++ ; 
- }
- });
+function setup() {
+   		let setupRemaining = at < handshake.length;
+  		if(setupRemaining) {
+  			// Setup Socket for next one.
+   			socket.once('data', setup);
+  			if(handshake[at].length > 0) {
+   				socket.write(parser.serialize(handshake[at]));
+   			}
+          at++;
+   		} else {
+   			socket.on('data', (input) => {
+   				processInput(input, '');
+   			});
+        }
 }
+
+socket.once('data', setup); 
+
 const server = net.createServer((connection) => {
   const parser = new Parser();
 const runner = new Runner();
 
   // Handle connection
     connection.on("data" , (input)=>{
-      const data = input.toString();
-      		const commands = parser.parse(data);
-       		let result = runner.execute(commands);
+      // const data = input.toString();
+      // 		const commands = parser.parse(data);
+      //  		let result = runner.execute(commands);
+      processInput(input, connection) ;
     //connection.write(result);
     // Handle multiple responses.
     // isArray to check this types of array suppose it is
